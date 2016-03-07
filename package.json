@@ -21,9 +21,12 @@
   "homepage": "https://github.com/albennett/smart-mirror#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "moment": "^2.11.2",
+    "request": "^2.69.0"
   },
   "devDependencies": {
+    "bower": "^1.7.7",
     "nodemon": "^1.9.1"
   }
 }
