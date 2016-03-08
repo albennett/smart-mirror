@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/albennett/smart-mirror#readme",
   "dependencies": {
+    "angular-google-maps": "^2.3.2",
     "express": "^4.13.4",
     "jade": "^1.11.0",
     "moment": "^2.11.2",

@@ -1,0 +1,29 @@
+{
+  "name": "smart-mirror",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Amy Lee Bennett <amyleeannebennett@gmail.com> (https://www.amylee.co/)"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/albennett/smart-mirror",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.0",
+    "angular": "^1.5.0",
+    "angular-google-maps": "^2.3.2",
+    "moment": "^2.11.2",
+    "bootstrap": "^3.3.6",
+    "skycons": "*",
+    "angular-simple-logger": "^0.1.7",
+    "lodash": "^4.6.1"
+  }
+}
