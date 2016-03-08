@@ -10,6 +10,7 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
   const quotesUrl = 'http://quotes.rest/qod.json';
   const googleKey = 'AIzaSyBWxxUFMPhxC64LOxG-G_mD-oc0siASEY8'
   const weatherUrl = 'https://api.forecast.io/forecast/88eb88be23406cc2c563c798d72aa649/36.1820800,-86.7278270'
+  const googleMapsUrl = 'https://maps.googleapis.com/maps/api/distancematrix/jsonp?origins=700+Wilsonwood+Pl.+Nashville,+TN+37206&destinations=500+Interstate+Blvd+S,+Nashville,+TN+37210&mode=driving&language=en'
 
   $scope.time = now.format('LT');
 
@@ -51,21 +52,19 @@ quoteApi();
     }
   newsApi();
 
-// const weatherApi = () => {
-//     var deferred = $q.defer();
+  const weatherApi = () => {
+    $http.get('/api/weather').success((response) => {
+      $scope.weather = response;
+      console.log("response", response);
+    });
+  }
 
-//     $http.get(weatherUrl)
-//     .then(function (weather) {
-//       console.log("weather", weather)
-//       deferred.resolve(weather);
-//     })
-//     .catch(function () {
-//       deferred.reject();
-//     });
+  const googleMapsApi = () => {
+    $http.get('/api/maps').success((response) => {
+      $scope.map = response;
+      console.log("response", response);
+    });
+  }
 
-//     // return promise object
-//     return deferred.promise;
-//   }
-// weatherApi();
 
 }]);
