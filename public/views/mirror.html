@@ -7,10 +7,6 @@
 <h2 class='summary'>{{weather.summary}}</h2>
 <skycon class='skycon' icon="weather.icon"></skycon>
 
-<!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-  <ui-gmap-layer type="TransitLayer" show="show"></ui-gmap-layer>
-</ui-gmap-google-map> -->
-
 <div id="five-day-forecast">
   <div class="col card inline" ng-repeat="day in fiveDay | limitTo: 5">
     <skycon icon="day.icon" size="50"></skycon>

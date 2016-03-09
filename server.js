@@ -28,6 +28,7 @@ app.get('/api/news', apicache('1 hour'), (req, res) => {
     if (err) throw err;
     const news = JSON.parse(body);
     console.log("news",news);
+    console.log("hellooo");
     res.send(news)
   })
 })

@@ -18,8 +18,6 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
   }
   quoteApi();
 
-  // $scope.map = { center: { latitude: 36.174465, longitude: -86.767960 }, zoom: 8 };
-
   const newsApi = () => {
     $http.get('/api/news').success((response) => {
       $scope.news = response.results;
@@ -34,7 +32,6 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
       $scope.fiveDay = response.daily.data
     });
   }
-
   weatherApi();
 
   const d = new Date();
