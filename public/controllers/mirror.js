@@ -66,10 +66,10 @@ angular.module('myApp').factory('CalendarService',
   function listUpcomingEvents() {
     var request = gapi.client.calendar.events.list({
       'calendarId': 'primary',
-      'timeMin': (new Date()).toISOString(),
+      'timeMin': (new Date()).toLocaleString(),
       'showDeleted': false,
       'singleEvents': true,
-      'maxResults': 10,
+      'maxResults': 5,
       'orderBy': 'startTime'
     });
 

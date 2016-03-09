@@ -15,76 +15,93 @@
     height: 11%;
     width: 48%;
     /*margin-top: 63%;*/
-    margin-left: 30px;
-    margin-bottom: 30px;
+    margin-left: 60px;
+    margin-bottom: 35px;
     position:absolute;
-     bottom:0;
+    bottom:0;
   }
 
   #titles{
     position: absolute;
     visibility: visible;
-    left: 65%;
-    top: 80%;
-    width: 30%;
+    left: 57%;
+    top: 79%;
+    width: 37%;
     z-index: 200;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
+    font-size: 18px;
+    padding-left:10px;
   }
 
   .inline{
     display: inline-block;
   }
 
+  .high-low{
+    padding:7px;
+  }
+
   #five-day-forecast{
     position: absolute;
     visibility: visible;
-    left: 65%;
-    top: 89%;
+    left: 59%;
+    top: 86%;
     z-index: 200;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
+    font-size: 20px;
   }
 
   .time{
-    padding-top: 45px;
-    padding-left: 45px;
+    position: absolute;
+    top: 5%;
+    left: 10%;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
+    font-size: 60px;
   }
 
   .temp{
     position: absolute;
     right: 10%;
-    top: 3%;
+    top: 5%;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
+    font-size: 60px;
   }
 
   .skycon{
     position: absolute;
-    right: 16%;
-    top:3%;
+    right: 18%;
+    top:5%;
   }
 
   .summary{
     position: absolute;
     right:10%;
-    top:6%;
+    top:10%;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
+    font-size: 28px;
   }
 
   .day{
-    padding-left:45px;
+    position: absolute;
+    left: 10%;
+    top:10%;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
+    font-size: 28px;
   }
 
   .date{
-    padding-left:45px;
+    position: absolute;
+    left:10%;
+    top: 13%;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
+    font-size: 28px
   }
 
   .fa{
@@ -96,9 +113,26 @@
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 30px;
+    padding-top: 300px;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
+  }
+
+  #output{
+    position: absolute;
+    visibility: visible;
+    right: 50%;
+    top: 79%;
+    width: 37%;
+    z-index: 200;
+    position: absolute;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    background-color: white;
+    font-size: 18px;
+    border: none;
+
+
   }
 
 /*}*/
