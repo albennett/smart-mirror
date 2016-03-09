@@ -23,3 +23,12 @@
     <i class="fa fa-newspaper-o"></i> <span class='news-title'>{{new.title}} </span>
   </div>
 </div>
+
+<div id="authorize-div" style="display: none">
+  <span>Authorize access to Google Calendar API</span>
+  <!--Button for the user to click to initiate auth sequence -->
+  <button id="authorize-button" ng-click="handleAuth(event)">
+    Authorize
+  </button>
+</div>
+<pre id="output"></pre>

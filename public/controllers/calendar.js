@@ -1,8 +1,4 @@
-angular.module('myApp').factory('CalendarService',
-  ['$q', '$timeout', '$http',
-  function ($q, $timeout, $http) {
-
-  'use strict'
+'use strict'
 
   var CLIENT_ID = '725848488836-f9a0tv8gkmcdkjob3p8m487a033mrkqi.apps.googleusercontent.com';
 
@@ -78,7 +74,7 @@ angular.module('myApp').factory('CalendarService',
       appendPre('Upcoming events:');
 
       if (events.length > 0) {
-        for (i = 0; i < events.length; i++) {
+        for (var i = 0; i < events.length; i++) {
           var event = events[i];
           var when = event.start.dateTime;
           if (!when) {
@@ -104,14 +100,3 @@ angular.module('myApp').factory('CalendarService',
     var textContent = document.createTextNode(message + '\n');
     pre.appendChild(textContent);
   }
-
-  return ({
-      checkAuth: checkAuth,
-      handleAuthResult: handleAuthResult,
-      handleAuthClick: handleAuthClick,
-      appendPre: appendPre,
-      listUpcomingEvents: listUpcomingEvents,
-      loadCalendarApi: loadCalendarApi
-    });
-
-}]);

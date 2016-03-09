@@ -1,7 +1,7 @@
 'use strict'
 var myApp = angular.module("myApp");
 
-myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParams', '$q', '$window', function($scope, $http,$location, $routeParams, $q, $window){
+myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParams', '$q', '$window', 'CalendarService', function($scope, $http,$location, $routeParams, $q, $window, CalendarService){
   console.log('Mirror Controller Initialized...');
 
   const now = moment(new Date());
@@ -12,6 +12,14 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
 
   $scope.time = now.format('LT');
   $scope.date = moment().format('MMMM Do YYYY')
+
+  const calendarApi = () => {
+    CalendarService.checkAuth()
+  }
+
+   $scope.handleAuth = (event) => {
+    CalendarService.handleAuthClick(event)
+  }
 
   const quoteApi = () => {
     var deferred = $q.defer();
@@ -59,7 +67,7 @@ $scope.map = { center: { latitude: 36.174465, longitude: -86.767960 }, zoom: 8 }
       $scope.temperature = parseInt(response.currently.temperature)
       $scope.fiveDay = response.daily.data
       console.log("fi", $scope.fiveDay);
-      console.log("weather", response);
+      console.log("weather");
       console.log("weather --", response.currently);
     });
   }
