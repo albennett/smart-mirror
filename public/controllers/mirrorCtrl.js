@@ -35,6 +35,7 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
       $scope.author = response.contents.quotes[0].author;
     });
   }
+
   quoteApi();
 
   const newsApi = () => {

@@ -26,11 +26,12 @@
 
       function updateMap() {
         var nIntervId = setInterval(initMap, 600000); //10 mins
+        console.log("update map");
       }
 
-      $(function() {
+      (function() {
         updateMap();
-      });
+      })();
     </script>
 
   <div ng-view></div>
