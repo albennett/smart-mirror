@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'uiGmapgoogle-maps']);
+var myApp = angular.module('myApp', ['ngRoute', 'uiGmapgoogle-maps', 'angular-skycons']);
 
 myApp.config(function($routeProvider){
   $routeProvider.when('/',{

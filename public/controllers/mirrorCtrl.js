@@ -11,26 +11,27 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
   const googleKey = 'AIzaSyBWxxUFMPhxC64LOxG-G_mD-oc0siASEY8'
 
   $scope.time = now.format('LT');
+  $scope.date = moment().format('MMMM Do YYYY')
 
-//   const quoteApi = () => {
-//     var deferred = $q.defer();
+  const quoteApi = () => {
+    var deferred = $q.defer();
 
-//     $http.get(quotesUrl)
-//     .then(function (quote) {
-//       console.log("data", quote.data.contents.quotes[0]);
-//       deferred.resolve(quote);
-//       $scope.quote = quote.data.contents.quotes[0].quote
-//       $scope.author = quote.data.contents.quotes[0].author
-//     })
+    $http.get(quotesUrl)
+    .then(function (quote) {
+      console.log("data", quote.data.contents.quotes[0]);
+      deferred.resolve(quote);
+      $scope.quote = quote.data.contents.quotes[0].quote
+      $scope.author = quote.data.contents.quotes[0].author
+    })
 
-//     .catch(function () {
-//       deferred.reject();
-//     });
+    .catch(function () {
+      deferred.reject();
+    });
 
-//     // return promise object
-//     return deferred.promise;
-//   }
-// quoteApi();
+    // return promise object
+    return deferred.promise;
+  }
+quoteApi();
 
 $scope.map = { center: { latitude: 36.174465, longitude: -86.767960 }, zoom: 8 };
 
@@ -55,7 +56,9 @@ $scope.map = { center: { latitude: 36.174465, longitude: -86.767960 }, zoom: 8 }
   const weatherApi = () => {
     $http.get('/api/weather').success((response) => {
       $scope.weather = response.currently;
-
+      $scope.temperature = parseInt(response.currently.temperature)
+      $scope.fiveDay = response.daily.data
+      console.log("fi", $scope.fiveDay);
       console.log("weather", response);
       console.log("weather --", response.currently);
     });
@@ -63,41 +66,24 @@ $scope.map = { center: { latitude: 36.174465, longitude: -86.767960 }, zoom: 8 }
 
   weatherApi();
 
-  // const googleMapsApi = () => {
-  //   $http.get('/api/maps').success((response) => {
-  //     $scope.map = response.rows[0].elements[0].duration.text
-  //   });
-  // }
-  // googleMapsApi()
+  const d = new Date();
+  const weekday = new Array(7);
+  weekday[0]=  "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
 
+  $scope.new = weekday[d.getDay()];
 
+  const dateObj = new Date();
+  const month = dateObj.getUTCMonth() + 1; //months from 1-12
+  const day = dateObj.getUTCDate();
+  const year = dateObj.getUTCFullYear();
 
-  // var map;
-  //   $window.initMap = function () {
-  //     map = new google.maps.Map(document.getElementById('map'), {
-  //       center: {lat: 36.174465, lng: -86.767960},
-  //       zoom: 8
-  //     });
-  //     var trafficLayer = new google.maps.TrafficLayer();
-  //     trafficLayer.setMap(map);
-  //   }
-
-    // (function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-    //   directionsService.route({
-    //     origin: "700 Wilsonwood Pl Nashville, TN 37206",
-    //     destination: "500 Interstate Blvd S, Nashville, TN 37210, USA",
-    //     provideRouteAlternatives: true,
-    //     travelMode: google.maps.TravelMode.DRIVING,
-    //     drivingOptions: {
-    //       departureTime: new Date(/* now, or future date */),
-    //       trafficModel: google.maps.TrafficModel.OPTIMISTIC
-    //     }
-    //   }, function(response, status) {
-    //     if (status === google.maps.DirectionsStatus.OK) {
-    //       directionsDisplay.setDirections(response);
-    //     }
-    //   });
-    // })();
+  $scope.newdate = month + " " + day + ' , ' + year ;
 
 
 

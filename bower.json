@@ -24,6 +24,8 @@
     "bootstrap": "^3.3.6",
     "skycons": "*",
     "angular-simple-logger": "^0.1.7",
-    "lodash": "^4.6.1"
+    "lodash": "^4.6.1",
+    "angular-skycons": "^2.0.2",
+    "font-awesome": "^4.5.0"
   }
 }

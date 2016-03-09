@@ -3,6 +3,8 @@
   <head>
     <title>Smart Mirror</title>
     <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/styles/main.css">
     <style>
 
@@ -10,7 +12,6 @@
   </head>
 
   <body>
-<div id="map"></div>
   <script>
     var map;
     function initMap() {
@@ -24,6 +25,7 @@
   </script>
 
   <div ng-view></div>
+  <div id="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWxxUFMPhxC64LOxG-G_mD-oc0siASEY8&callback=initMap"async defer></script>
     <script src="/vendor/jquery/dist/jquery.js"></script>
     <script src="/vendor/angular/angular.min.js"></script>
@@ -34,7 +36,9 @@
     <script src='/vendor/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
     <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
     <script src='/vendor/angular-google-maps/dist/angular-google-maps.min.js'></script>
-    <script src="/app.js"></script>
+    <script src="/vendor/skycons/skycons.js"></script>
+    <script src="/vendor/angular-skycons/angular-skycons.min.js"></script>
+    <script src='/app.js'></script>
     <script src="/controllers/mirrorCtrl.js"></script>
   </body>
 </html>
