@@ -8,7 +8,7 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
   const apikey = '6b33eb7b78a214401d2766c100aeae6a:5:74631439';
   const newsUrl = `http://api.nytimes.com/svc/topstories/v1/home.json?api-key=${apikey}`;
   const quotesUrl = 'http://quotes.rest/qod.json';
-  // const googleKey = 'AIzaSyBWxxUFMPhxC64LOxG-G_mD-oc0siASEY8'
+  const googleKey = 'AIzaSyBWxxUFMPhxC64LOxG-G_mD-oc0siASEY8'
 
   $scope.time = now.format('LT');
 
@@ -72,15 +72,15 @@ $scope.map = { center: { latitude: 36.174465, longitude: -86.767960 }, zoom: 8 }
 
 
 
-  var map;
-    $window.initMap = function () {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 36.174465, lng: -86.767960},
-        zoom: 10
-      });
-      var trafficLayer = new google.maps.TrafficLayer();
-      trafficLayer.setMap(map);
-    }
+  // var map;
+  //   $window.initMap = function () {
+  //     map = new google.maps.Map(document.getElementById('map'), {
+  //       center: {lat: 36.174465, lng: -86.767960},
+  //       zoom: 8
+  //     });
+  //     var trafficLayer = new google.maps.TrafficLayer();
+  //     trafficLayer.setMap(map);
+  //   }
 
     // (function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     //   directionsService.route({

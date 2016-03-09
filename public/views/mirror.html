@@ -6,6 +6,10 @@
 <p>{{weather.temperature}}</p>
 <p>{{weather.summary}}</p>
 
+<!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+  <ui-gmap-layer type="TransitLayer" show="show"></ui-gmap-layer>
+</ui-gmap-google-map> -->
+
 <div ng-repeat="new in news | limitTo: 3">
   <p> {{new.title}} </p>
 </div>
