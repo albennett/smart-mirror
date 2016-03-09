@@ -1,5 +1,6 @@
 <div id="map"></div>
-<h1 class='time'>{{time}}</h1>
+<h1 id="my_box1" class='time'></h1>
+<!-- <h1 class='time'>{{time}}</h1> -->
 <h3 class='day'>{{new}}</h3>
 <h3 class='date'>{{date}}</h3>
 <h3 class='quote'>"{{quote}}" -- {{author}}</h3>
@@ -14,6 +15,8 @@
     <p>Low<br> {{day.temperatureMin}}</p>
   </div>
 </div>
+
+
 <div id='titles'>
   <div ng-repeat="new in news | limitTo: 3">
     <i class="fa fa-newspaper-o"></i> <span class='news-title'>{{new.title}} </span>

@@ -1,13 +1,32 @@
 'use strict'
 var myApp = angular.module("myApp");
 
-myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParams', '$q', '$window', function($scope, $http,$location, $routeParams, $q, $window){
+myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParams', '$q', '$window', '$interval', function($scope, $http,$location, $routeParams, $q, $window, $interval){
 
   const now = moment(new Date());
   const googleKey = 'AIzaSyBWxxUFMPhxC64LOxG-G_mD-oc0siASEY8'
 
-  $scope.time = now.format('LT');
   $scope.date = moment().format('MMMM Do YYYY')
+
+  function updateTime() {
+    var nIntervId = setInterval(flashTime, 1000*2);
+  }
+
+  function flashTime() {
+    var now = new Date();
+    var h = now.getHours();
+    var m = now.getMinutes();
+    var time = h + ' : ' + m;
+    $('#my_box1').html(time);
+  }
+
+  $(function() {
+    updateTime();
+  });
+
+  // $interval(function(){
+  //   $scope.time = now.format('LT');
+  // },1000);
 
   const quoteApi = () => {
     $http.get('/api/quote').success((response) => {
@@ -33,6 +52,14 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
     });
   }
   weatherApi();
+
+  function updateWeather () {
+    var interval = setInterval(weatherApi, 60000);
+  }
+
+  $(function() {
+    updateWeather();
+  });
 
   const d = new Date();
   const weekday = new Array(7);
