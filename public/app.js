@@ -5,4 +5,7 @@ myApp.config(function($routeProvider){
     controller: 'MirrorController',
     templateUrl: 'views/mirror.html'
   })
+  .otherwise({
+    redirectTo: '/'
+  });
 });
