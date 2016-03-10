@@ -4,7 +4,6 @@ var myApp = angular.module("myApp");
 myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParams', '$q', '$window', '$interval', function($scope, $http,$location, $routeParams, $q, $window, $interval){
 
   const now = moment(new Date());
-  const googleKey = 'AIzaSyBWxxUFMPhxC64LOxG-G_mD-oc0siASEY8'
 
   $scope.date = moment().format('MMMM Do YYYY')
 
@@ -24,38 +23,48 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
     updateTime();
   });
 
-  // $interval(function(){
-  //   $scope.time = now.format('LT');
-  // },1000);
-
-  const quoteApi = () => {
+  function quoteApi () {
     $http.get('/api/quote').success((response) => {
       console.log("quote response", response);
       $scope.quote = response.contents.quotes[0].quote;
       $scope.author = response.contents.quotes[0].author;
     });
   }
+quoteApi()
+  function updateQuote() {
+    var quoteInterval = setInterval(quoteApi, 10800000); //three hours
+    console.log("quote updated");
+  }
 
-  quoteApi();
+   $(function() {
+      updateQuote();
+    });
 
-  const newsApi = () => {
+  function newsApi () {
     $http.get('/api/news').success((response) => {
       $scope.news = response.results;
     });
   }
-  newsApi()
+newsApi()
+  function updateNews() {
+    var newsInterval = setInterval(quoteApi, 10800000); //three hours
+    console.log("news updated");
+  }
+  $(function() {
+    updateNews();
+  });
 
-  const weatherApi = () => {
+  function weatherApi () {
     $http.get('/api/weather').success((response) => {
       $scope.weather = response.currently;
       $scope.temperature = parseInt(response.currently.temperature)
       $scope.fiveDay = response.daily.data
     });
   }
-  weatherApi();
-
+weatherApi()
   function updateWeather () {
-    var interval = setInterval(weatherApi, 60000);
+    var interval = setInterval(weatherApi, 60000*2); //2 minutes
+    console.log("weather updated");
   }
 
   $(function() {
