@@ -1,5 +1,5 @@
 /* (1600x900) HD+ Display */
-/*@media  screen and (max-width: 900) {*/
+@media screen and (max-width: 1080px) {
     /* insert styles here */
   html, body {
     height: 100%;

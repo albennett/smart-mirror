@@ -6,7 +6,7 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
 
   const now = moment(new Date());
 
-  $scope.date = moment().format('MMMM Do YYYY')
+  $scope.date = moment().format('MMMM Do')
 
   const calendarApi = () => {
     CalendarService.checkAuth()
@@ -65,6 +65,7 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
       $scope.fiveDay = response.daily.data;
       $scope.weather = response.currently;
       $scope.temperature = parseInt(response.currently.temperature)
+      console.log("response", response);
       console.log("weather updated");
     });
   }
