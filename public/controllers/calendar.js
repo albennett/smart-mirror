@@ -63,7 +63,6 @@ function listUpcomingEvents() {
   var request = gapi.client.calendar.events.list({
     'calendarId': 'primary',
     'timeMin': (new Date()).toISOString(),
-    'timeMin2': (new Date()).toLocaleString(),
     'showDeleted': false,
     'singleEvents': true,
     'maxResults': 10,
@@ -72,17 +71,17 @@ function listUpcomingEvents() {
 
   request.execute(function(resp) {
     var events = resp.items;
-    console.log("resp", resp);
     appendPre('');
-
     if (events.length > 0) {
       for (var i = 0; i < events.length; i++) {
+
         var event = events[i];
         var when = event.start.dateTime;
+        var when2 = when.slice(5,10);
         if (!when) {
           when = event.start.date;
         }
-        appendPre(event.summary + ' (' + when + ')')
+        appendPre( when2 + ' || ' + event.summary)
       }
     } else {
       appendPre('No upcoming events found.');
