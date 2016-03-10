@@ -1,10 +1,12 @@
 /* (1600x900) HD+ Display */
 @media screen and (max-width: 1080px) {
+  /*efef*/
     /* insert styles here */
   html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: black;
   }
 
   #map {
@@ -27,6 +29,7 @@
     font-weight: 400;
     font-size: 18px;
     padding-left:10px;
+    color: #efefef;
   }
 
   .inline{
@@ -46,6 +49,7 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 20px;
+    color: #efefef;
   }
 
   .time{
@@ -55,6 +59,7 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 60px;
+    color: #efefef;
   }
 
   .temp{
@@ -64,6 +69,7 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 60px;
+    color: #efefef;
   }
 
   .skycon{
@@ -79,6 +85,7 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 28px;
+    color: #efefef;
   }
 
   .day{
@@ -88,6 +95,7 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 28px;
+    color: #efefef;
   }
 
   .date{
@@ -97,10 +105,12 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 28px
+    color: #efefef;
   }
 
   .fa{
     display: inline-block;
+    color: #efefef;
   }
 
   .quote{
@@ -112,6 +122,7 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 28px;
+    color: #efefef;
   }
 
   .joke{
@@ -123,6 +134,7 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 28px;
+    color: #efefef;
   }
 
   #output{
@@ -138,6 +150,7 @@
     background-color:transparent;
     font-size: 18px;
     border: none;
+    color: #efefef;
 
   }
 
@@ -148,15 +161,18 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 900;
     left: 9%;
+    color: #efefef;
   }
 
   .news-title{
     padding-left: 10px;
+    color: #efefef;
   }
 
   #authorize-button{
     position: absolute;
     bottom: 40%;
+    color: #efefef;
   }
 
 /*}*/
