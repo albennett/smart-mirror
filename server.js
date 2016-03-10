@@ -14,8 +14,8 @@ app.set('view engine', 'jade')
 app.use(express.static('public'))
 app.get('/');
 
-app.get('/api/weather', apicache('10 minutes'), (req, res) => {
-  request.get(weatherUrl, (err, response, body) => {
+app.get('/api/weather', apicache('10 minutes'), function (req, res) {
+  request.get(weatherUrl, function (err, response, body){
     if (err) throw err;
     res.header('Access-Controll-Allow-Origin', '*');
     var weather = JSON.parse(body);
@@ -23,8 +23,8 @@ app.get('/api/weather', apicache('10 minutes'), (req, res) => {
   })
 })
 
-app.get('/api/news', apicache('1 hour'), (req, res) => {
-  request.get(newsUrl, (err, response, body) => {
+app.get('/api/news', apicache('1 hour'), function (req, res){
+  request.get(newsUrl, function (err, response, body){
     if (err) throw err;
     var news = JSON.parse(body);
     console.log("news");
@@ -32,8 +32,8 @@ app.get('/api/news', apicache('1 hour'), (req, res) => {
   })
 })
 
-app.get('/api/quote', apicache('12 hours'), (req, res) => {
-  request.get(quoteUrl, (err, response, body) => {
+app.get('/api/quote', apicache('12 hours'), function (req, res){
+  request.get(quoteUrl, function (err, response, body){
     if (err) throw err;
     var quote = JSON.parse(body);
     console.log("quote",quote);
@@ -41,7 +41,7 @@ app.get('/api/quote', apicache('12 hours'), (req, res) => {
   })
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, function () {
   console.log(`App listening on port ${PORT}`);
 });
 

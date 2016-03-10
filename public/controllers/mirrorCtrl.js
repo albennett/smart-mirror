@@ -8,11 +8,11 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
 
   $scope.date = moment().format('MMMM Do')
 
-  var calendarApi = () => {
+  function calendarApi (){
     CalendarService.checkAuth()
   }
 
-  $scope.handleAuth = (event) => {
+  $scope.handleAuth = function (event) {
     CalendarService.handleAuthClick(event)
   }
 
