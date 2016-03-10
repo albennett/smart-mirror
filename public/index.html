@@ -2,6 +2,7 @@
 <html ng-app="myApp">
   <head>
     <title>Smart Mirror</title>
+    <meta http-equiv='refresh' content='10800'>
     <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300' rel='stylesheet' type='text/css'>
@@ -12,17 +13,26 @@
   </head>
 
   <body>
-  <script>
-    var map;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 36.174465, lng: -86.767960},
-        zoom: 10
-      });
-      var trafficLayer = new google.maps.TrafficLayer();
-      trafficLayer.setMap(map);
-    }
-  </script>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 36.174465, lng: -86.767960},
+          zoom: 10
+        });
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map);
+      }
+
+      function updateMap() {
+        var nIntervId = setInterval(initMap, 600000); //10 mins
+        console.log("update map");
+      }
+
+      (function() {
+        updateMap();
+      })();
+    </script>
 
   <div ng-view></div>
   <div id="map"></div>

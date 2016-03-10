@@ -1,15 +1,12 @@
 <div id="map"></div>
-<h1 class='time'>{{time}}</h1>
+<h1 id="my_box1" class='time'></h1>
+<!-- <h1 class='time'>{{time}}</h1> -->
 <h3 class='day'>{{new}}</h3>
 <h3 class='date'>{{date}}</h3>
 <h3 class='quote'>"{{quote}}" -- {{author}}</h3>
 <h1 class='temp'>{{temperature}}&deg;</h1>
 <h2 class='summary'>{{weather.summary}}</h2>
 <skycon class='skycon' icon="weather.icon"></skycon>
-
-<!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-  <ui-gmap-layer type="TransitLayer" show="show"></ui-gmap-layer>
-</ui-gmap-google-map> -->
 
 <div id="five-day-forecast">
   <div class="col card inline" ng-repeat="day in fiveDay | limitTo: 5">
@@ -18,6 +15,8 @@
     <p class='high-low'>Low<br> {{day.temperatureMin}}</p>
   </div>
 </div>
+
+
 <div id='titles'>
   <div ng-repeat="new in news | limitTo: 3">
     <i class="fa fa-newspaper-o"></i> <span class='news-title'>{{new.title}} </span>
