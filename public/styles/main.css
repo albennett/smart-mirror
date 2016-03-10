@@ -154,4 +154,9 @@
     padding-left: 10px;
   }
 
+  #authorize-button{
+    position: absolute;
+    bottom: 40%;
+  }
+
 /*}*/
