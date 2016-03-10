@@ -16,19 +16,12 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
     CalendarService.handleAuthClick(event)
   }
 
-  function updateTime() {
-    var nIntervId = setInterval(flashTime, 1000*2);
-  }
-
   function flashTime() {
 
     const time = moment().format('LT')
     $('#my_box1').html(time);
   }
-
-  $(function() {
-    updateTime();
-  });
+  setInterval(flashTime, 1000*2);
 
   function quoteApi () {
     $http.get('/api/quote').success((response) => {
@@ -38,13 +31,8 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
     });
   }
   quoteApi()
-  function updateQuote() {
-    var quoteInterval = setInterval(quoteApi, 10800000); //three hours
-  }
 
-  $(function() {
-    updateQuote();
-  });
+  setInterval(quoteApi, 10800000); //three hours
 
   function newsApi () {
     $http.get('/api/news').success((response) => {
@@ -53,12 +41,8 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
     });
   }
   newsApi()
-  function updateNews() {
-    var newsInterval = setInterval(quoteApi, 10800000); //three hours
-  }
-  $(function() {
-    updateNews();
-  });
+  setInterval(quoteApi, 10800000); //three hours
+
 
   function weatherApi () {
     $http.get('/api/weather').success((response) => {
@@ -70,13 +54,7 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
     });
   }
   weatherApi()
-  function updateWeather () {
-    var interval = setInterval(weatherApi, 60000*2); //2 minutes
-  }
-
-  $(function() {
-    updateWeather();
-  });
+  setInterval(weatherApi, 60000*2); //2 minutes
 
   const d = new Date();
   const weekday = new Array(7);
