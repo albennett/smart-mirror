@@ -24,7 +24,7 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
   setInterval(flashTime, 1000*2);
 
   function quoteApi () {
-    $http.get('/api/quote').success((response) => {
+    $http.get('/api/quote').success( function (response){
       $scope.quote = response.contents.quotes[0].quote;
       $scope.author = response.contents.quotes[0].author;
       console.log("quote updated");
@@ -35,7 +35,7 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
   setInterval(quoteApi, 10800000); //three hours
 
   function newsApi () {
-    $http.get('/api/news').success((response) => {
+    $http.get('/api/news').success(function (response) {
       $scope.news = response.results;
       console.log("news updated");
     });
@@ -45,7 +45,7 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
 
 
   function weatherApi () {
-    $http.get('/api/weather').success((response) => {
+    $http.get('/api/weather').success(function (response){
       $scope.fiveDay = response.daily.data;
       $scope.weather = response.currently;
       $scope.temperature = parseInt(response.currently.temperature)
