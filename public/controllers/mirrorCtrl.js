@@ -4,11 +4,11 @@ var myApp = angular.module("myApp");
 myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParams', '$q', '$window', 'CalendarService', function($scope, $http,$location, $routeParams, $q, $window, CalendarService){
   console.log('Mirror Controller Initialized...');
 
-  const now = moment(new Date());
+  var now = moment(new Date());
 
   $scope.date = moment().format('MMMM Do')
 
-  const calendarApi = () => {
+  var calendarApi = () => {
     CalendarService.checkAuth()
   }
 
@@ -18,7 +18,7 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
 
   function flashTime() {
 
-    const time = moment().format('LT')
+    var time = moment().format('LT')
     $('#my_box1').html(time);
   }
   setInterval(flashTime, 1000*2);
@@ -56,8 +56,8 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
   weatherApi()
   setInterval(weatherApi, 60000*2); //2 minutes
 
-  const d = new Date();
-  const weekday = new Array(7);
+  var d = new Date();
+  var weekday = new Array(7);
   weekday[0]=  "Sunday";
   weekday[1] = "Monday";
   weekday[2] = "Tuesday";
