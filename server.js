@@ -6,7 +6,7 @@ const request = require('request');
 var apicache = require('apicache').options({ debug: true }).middleware;
 const weatherUrl = 'https://api.forecast.io/forecast/88eb88be23406cc2c563c798d72aa649/36.1820800,-86.7278270'
 const apikey = '6b33eb7b78a214401d2766c100aeae6a:5:74631439';
-const newsUrl = `http://api.nytimes.com/svc/topstories/v1/home.json?api-key=${apikey}`;
+const newsUrl = `http://api.nytimes.com/svc/topstories/v1/world.json?api-key=${apikey}`;
 const quoteUrl = 'http://quotes.rest/qod.json';
 
 
