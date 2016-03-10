@@ -6,13 +6,13 @@
 <p class='quote'>"{{quote}}" -- {{author}}</p>
 <p class='temp'>{{temperature}}&deg;</p>
 <p class='summary'>{{weather.summary}}</p>
-<skycon class='skycon' icon="weather.icon"></skycon>
+<skycon class='skycon' icon="weather.icon" size="100"></skycon>
 
 <div id="five-day-forecast">
   <div class="col card inline" ng-repeat="day in fiveDay | limitTo: 5">
     <skycon icon="day.icon" size="50"></skycon>
-    <p class='high-low'>High<br> {{day.temperatureMax}}</p>
-    <p class='high-low'>Low<br> {{day.temperatureMin}}</p>
+    <p class='high-low'>High<br> {{day.temperatureMax | number: 0}}</p>
+    <p class='high-low'>Low<br> {{day.temperatureMin | number: 0}}</p>
   </div>
 </div>
 
@@ -30,4 +30,5 @@
     Authorize
   </button>
 </div>
+<div class='events'>Upcoming events:</div>
 <pre id="output" class='upcoming'></pre>

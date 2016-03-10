@@ -42,9 +42,9 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
     var quoteInterval = setInterval(quoteApi, 10800000); //three hours
   }
 
-   $(function() {
-      updateQuote();
-    });
+  $(function() {
+    updateQuote();
+  });
 
   function newsApi () {
     $http.get('/api/news').success((response) => {
@@ -62,9 +62,9 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
 
   function weatherApi () {
     $http.get('/api/weather').success((response) => {
+      $scope.fiveDay = response.daily.data;
       $scope.weather = response.currently;
       $scope.temperature = parseInt(response.currently.temperature)
-      $scope.fiveDay = response.daily.data
       console.log("weather updated");
     });
   }
@@ -88,14 +88,5 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
   weekday[6] = "Saturday";
 
   $scope.new = weekday[d.getDay()];
-
-  const dateObj = new Date();
-  const month = dateObj.getUTCMonth() + 1; //months from 1-12
-  const day = dateObj.getUTCDate();
-  const year = dateObj.getUTCFullYear();
-
-  $scope.newdate = month + " " + day + ' , ' + year ;
-
-
 
 }]);
