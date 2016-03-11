@@ -49,6 +49,7 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
       $scope.fiveDay = response.daily.data;
       $scope.weather = response.currently;
       $scope.temperature = parseInt(response.currently.temperature)
+      $scope.color = 'white';
       console.log("response", response);
       console.log("weather updated");
     });
