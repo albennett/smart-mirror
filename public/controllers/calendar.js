@@ -102,21 +102,21 @@ function appendPre(message) {
   pre.appendChild(textContent);
 }
 
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 36.174465, lng: -86.767960},
-    zoom: 10
-  });
-  var trafficLayer = new google.maps.TrafficLayer();
-  trafficLayer.setMap(map);
-  console.log("update map");
-}
+// var map;
+// function initMap() {
+//   map = new google.maps.Map(document.getElementById('map'), {
+//     center: {lat: 36.174465, lng: -86.767960},
+//     zoom: 10
+//   });
+//   var trafficLayer = new google.maps.TrafficLayer();
+//   trafficLayer.setMap(map);
+//   console.log("update map");
+// }
 
-function updateMap() {
-  var nIntervId = setInterval(initMap, 600000); //10 mins
-}
+// function updateMap() {
+//   var nIntervId = setInterval(initMap, 600000); //10 mins
+// }
 
-(function() {
-  updateMap();
-})();
+// (function() {
+//   updateMap();
+// })();

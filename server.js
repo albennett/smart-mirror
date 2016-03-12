@@ -18,6 +18,7 @@ app.get('/api/weather', apicache('10 minutes'), function (req, res) {
   request.get(weatherUrl, function (err, response, body){
     if (err) throw err;
     res.header('Access-Controll-Allow-Origin', '*');
+    console.log("weatherUrl", weatherUrl);
     var weather = JSON.parse(body);
     res.send(weather)
   })

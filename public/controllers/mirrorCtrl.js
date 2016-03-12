@@ -1,7 +1,7 @@
 'use strict'
 var myApp = angular.module("myApp");
 
-myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParams', '$q', '$window', 'CalendarService', function($scope, $http,$location, $routeParams, $q, $window, CalendarService){
+myApp.controller('MirrorController', ['$scope', '$http','$routeParams', '$q', 'CalendarService', function($scope, $http, $routeParams, $q, CalendarService){
   console.log('Mirror Controller Initialized...');
 
   var now = moment(new Date());
@@ -17,14 +17,13 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
   }
 
   function flashTime() {
-
     var time = moment().format('LT')
     $('#my_box1').html(time);
   }
   setInterval(flashTime, 1000*2);
 
   function quoteApi () {
-    $http.get('/api/quote').success( function (response){
+    $http.get('/api/quote').success(function (response){
       $scope.quote = response.contents.quotes[0].quote;
       $scope.author = response.contents.quotes[0].author;
       console.log("quote updated");
@@ -50,8 +49,6 @@ myApp.controller('MirrorController', ['$scope', '$http','$location','$routeParam
       $scope.weather = response.currently;
       $scope.temperature = parseInt(response.currently.temperature)
       $scope.color = 'white';
-      console.log("response", response);
-      console.log("weather updated");
     });
   }
   weatherApi()
