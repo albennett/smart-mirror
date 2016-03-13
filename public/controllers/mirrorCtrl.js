@@ -1,7 +1,7 @@
 'use strict'
 var myApp = angular.module("myApp");
 
-myApp.controller('MirrorController', ['$scope', '$http','$routeParams', '$q', 'CalendarService', function($scope, $http, $routeParams, $q, CalendarService){
+myApp.controller('MirrorController', ['$scope', '$http','$routeParams', 'CalendarService', function($scope, $http, $routeParams, CalendarService){
   console.log('Mirror Controller Initialized...');
 
   var now = moment(new Date());

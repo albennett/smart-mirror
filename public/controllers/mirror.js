@@ -1,6 +1,6 @@
 angular.module('myApp').factory('CalendarService',
-  ['$q', '$timeout', '$http',
-  function ($q, $timeout, $http) {
+  ['$timeout', '$http',
+  function ($timeout, $http) {
 
   'use strict'
 
