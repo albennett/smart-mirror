@@ -1,7 +1,7 @@
 'use strict'
 var myApp = angular.module("myApp");
 
-myApp.controller('MirrorController', ['$scope', '$http','$routeParams', 'CalendarService', function($scope, $http, $routeParams, CalendarService){
+myApp.controller('MirrorController', ['$scope', '$http','$routeParams', '$q', 'CalendarService', function($scope, $http, $routeParams, $q, CalendarService){
   console.log('Mirror Controller Initialized...');
 
   var now = moment(new Date());
@@ -30,7 +30,6 @@ myApp.controller('MirrorController', ['$scope', '$http','$routeParams', 'Calenda
     });
   }
   quoteApi()
-
   setInterval(quoteApi, 10800000); //three hours
 
   function newsApi () {
@@ -42,13 +41,11 @@ myApp.controller('MirrorController', ['$scope', '$http','$routeParams', 'Calenda
   newsApi()
   setInterval(quoteApi, 10800000); //three hours
 
-
   function weatherApi () {
     $http.get('/api/weather').success(function (response){
       $scope.fiveDay = response.daily.data;
       $scope.weather = response.currently;
       $scope.temperature = parseInt(response.currently.temperature)
-      $scope.color = 'white';
     });
   }
   weatherApi()
