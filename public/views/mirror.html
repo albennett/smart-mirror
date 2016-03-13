@@ -11,7 +11,7 @@
 
 <div id="five-day-forecast">
   <div class="col card inline" ng-repeat="day in fiveDay | limitTo: 5">
-    <skycon icon="day.icon" size="50" color="color"></skycon>
+  <i class="wi wi-forecast-io-{{day.icon}}"></i>
     <p class='high-low'>High<br> {{day.temperatureMax | number: 0}}</p>
     <p class='high-low'>Low<br> {{day.temperatureMin | number: 0}}</p>
   </div>
