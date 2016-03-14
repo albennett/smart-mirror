@@ -6,8 +6,8 @@ var request = require('request');
 var apicache = require('apicache').options({ debug: true }).middleware;
 var weatherKey = process.env.WEATHER_KEY;
 var newsKey = process.env.NEWS_KEY;
-var weatherUrl = `https://api.forecast.io/forecast/${weatherKey}/36.1820800,-86.7278270`
-var newsUrl = `http://api.nytimes.com/svc/topstories/v1/world.json?api-key=${newsKey}`;
+var weatherUrl = 'https://api.forecast.io/forecast/' + weatherKey + '/36.1820800,-86.7278270'
+var newsUrl = 'http://api.nytimes.com/svc/topstories/v1/world.json?api-key=' + newsKey;
 var quoteUrl = 'http://quotes.rest/qod.json';
 
 app.set('view engine', 'jade')
@@ -43,6 +43,6 @@ app.get('/api/quote', apicache('12 hours'), function (req, res){
 })
 
 app.listen(PORT, function () {
-  console.log(`App listening on port ${PORT}`);
+  console.log('App listening on port' + PORT);
 });
 
