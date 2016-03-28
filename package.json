@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/albennett/smart-mirror#readme",
   "dependencies": {
-    "angular-google-maps": "^2.3.2",
     "apicache": "0.0.12",
     "express": "^4.13.4",
     "google-auth-library": "^0.9.7",
