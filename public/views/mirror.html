@@ -1,13 +1,13 @@
 <div id="map"></div>
 <p id="my_box1" class='time'></p>
-<!-- <h1 class='time'>{{time}}</h1> -->
+<h1 class='time'>{{time}}</h1>
 <p class='day'>{{new}}</p>
 <p class='date'>{{date}}</p>
 <p class='quote'>"{{quote}}" -- {{author}}</p>
 <p class='joke'>"You should hire Amy Lee" -- Maya Angelou</p>
 <p class='temp'>{{temperature}}&deg;</p>
 <p class='summary'>{{weather.summary}}</p>
-<skycon class='skycon' icon="weather.icon" size="100" color="color"></skycon>
+<i class="wi wi-forecast-io-{{weather.icon}} skycon"></i>
 
 <div id="five-day-forecast">
   <div class="col card inline" ng-repeat="day in fiveDay | limitTo: 5">
@@ -17,6 +17,8 @@
   </div>
 </div>
 
+<div class='events' ng-repeat='item in calItems | limitTo: 5' >Upcoming events:</div>
+<p class='cal'>{{item.summary}}{{item.start.dateTime}}</p>
 
 <div id='titles'>
   <div ng-repeat="new in news | limitTo: 3">
@@ -24,12 +26,7 @@
   </div>
 </div>
 
-<div id="authorize-div" style="display: none">
-  <span>Authorize access to Google Calendar API</span>
-  <!--Button for the user to click to initiate auth sequence -->
-  <button id="authorize-button" ng-click="handleAuth(event)">
-    Authorize
-  </button>
-</div>
-<div class='events'>Upcoming events:</div>
-<pre id="output" class='upcoming'></pre>
+
+
+<img width="600" id="map" src="{{mapUrl}}" alt="Bing Map of 36.1658333,-86.7844444">
+

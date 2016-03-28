@@ -1,7 +1,6 @@
 'use strict'
 var myApp = angular.module("myApp");
-
-myApp.controller('MirrorController', ['$scope', '$http','$routeParams', '$q', 'CalendarService', function($scope, $http, $routeParams, $q, CalendarService){
+myApp.controller('MirrorController', ['$scope', '$http','$routeParams', '$q', function($scope, $http, $routeParams, $q){
   console.log('Mirror Controller Initialized...');
 
   var now = moment(new Date());
@@ -9,13 +8,13 @@ myApp.controller('MirrorController', ['$scope', '$http','$routeParams', '$q', 'C
   $scope.date = moment().format('MMMM Do')
 
   function calendarApi (){
-    CalendarService.checkAuth()
+    $http.get('/api/calendar').success(function (response){
+      console.log("response", response.items[0].summary);
+      $scope.calItems = response.items;
+    });
   }
-
-  $scope.handleAuth = function (event) {
-    CalendarService.handleAuthClick(event)
-  }
-
+  calendarApi()
+  setInterval(calendarApi, 10000000)
   function flashTime() {
     var time = moment().format('LT')
     $('#my_box1').html(time);
@@ -31,6 +30,16 @@ myApp.controller('MirrorController', ['$scope', '$http','$routeParams', '$q', 'C
   }
   quoteApi()
   setInterval(quoteApi, 10800000); //three hours
+
+  function mapApi () {
+    $http.get('/api/map').success(function (response){
+      $scope.mapUrl = response.mapUrl;
+      console.log("url", $scope.mapUrl);
+      console.log("quote updated");
+    });
+  }
+  mapApi()
+  setInterval(mapApi, 600000); //10 mins
 
   function newsApi () {
     $http.get('/api/news').success(function (response) {

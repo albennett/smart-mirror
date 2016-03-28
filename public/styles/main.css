@@ -175,4 +175,14 @@
     color: #efefef;
   }
 
+.wi-forecast-io-clear-night:before {
+    font-size: 100px;
+    content: "\f02e";
+    color: white;
+}
+
+.cal{
+  color: white;
+}
+
 /*}*/
